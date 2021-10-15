@@ -22,6 +22,7 @@ reversal xs = revAcc [] xs where
     revAcc acc [] = acc
     revAcc acc (x :: xs) = revAcc (x :: acc) xs
 
+-- type constraint for equality check guarantee
 zipEq : Eq a => List a -> List a -> Bool
 zipEq [] [] = True
 zipEq [] (x :: xs) = False
