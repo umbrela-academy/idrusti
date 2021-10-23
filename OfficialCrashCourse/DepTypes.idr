@@ -24,7 +24,7 @@ data FinSet : Nat -> Type where
 
 -- using implicit arguments and proofs
 appVec: Ord a => Vector n a -> Vector m a -> Vector (n + m) a
-appVec NilVec vecm = vecm
+appVec NilVec vecm = vecm -- 0 + left  = left
 appVec {n} vecn NilVec = rewrite plusZeroRightNeutral n in vecn -- left + 0 = left
 appVec {n=(S n)} {m=(S m)} ( x :: xs) (y :: ys) = 
     rewrite sym $ plusSuccRightSucc n m in -- using sym to flip args, S (left + right) = left + S right
