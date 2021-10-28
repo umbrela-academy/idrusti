@@ -10,9 +10,14 @@ addition (Succ x) y = Succ (addition x y)
 -- adding a Successor of a Nat to another Nat
 -- is the same as Successor of addition of those same Nats
 
-multiplication: NatNum -> NatNum -> NatNum
+multiplication : NatNum -> NatNum -> NatNum
 multiplication Hero y = Hero
 multiplication (Succ x) y = addition y (multiplication x y)
+
+exponentiation : NatNum -> NatNum -> NatNum
+exponentiation _ Hero = Succ Hero
+exponentiation x (Succ Hero) = x
+exponentiation x (Succ y) = multiplication x (exponentiation x y)
 
 
 -- where clause for local definitions
@@ -54,7 +59,8 @@ listLen (x :: xs) = 1 + listLen xs
 
 lastElem: List a -> Maybe a
 lastElem [] = Nothing
-lastElem (x :: xs) = if (listLen xs > 0) then lastElem xs else Just x
+lastElem (x :: xs) = if (listLen xs > 0) then lastElem xs else Just x 
+-- to optimize, use if xs == [] then ...
 -- adjusting the value to some number other than 0 e.g. to get the elem at nth place needs some thought to be put into it 
 -- think of the extra checks you might be missing regarding the list index and being within the bounds
 

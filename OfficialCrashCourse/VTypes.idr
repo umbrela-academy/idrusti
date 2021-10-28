@@ -7,5 +7,6 @@ import Data.Vect
 %hide Data.Maybe.filter
 
 filter : (a -> Bool) -> Vect n a -> (p ** Vect p a)
+filter p Nil = ?somethings
 filter p (x :: xs) with (filter p xs)
     filter p (x :: xs) | (_ ** xs') = if (p x) then (_ ** x :: xs') else (_ ** xs')
