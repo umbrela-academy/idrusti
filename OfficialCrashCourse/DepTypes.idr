@@ -2,6 +2,7 @@ module OfficialCrashCourse.DepTypes
 
 import Data.Vect
 
+-- isSingle : Type
 isSingleton : Bool -> Type
 isSingleton True = Nat
 isSingleton False = List Nat
