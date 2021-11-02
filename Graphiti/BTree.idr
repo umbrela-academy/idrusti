@@ -52,15 +52,15 @@ revBTree node = fromList ( BTree.reverseList (BTree.toList node) )
 
 
 export
-invBTree : Ord a => BTree a -> BTree a
-invBTree Leaf = Leaf
-invBTree node = fromListInv (toList node)
+reinvBTree : Ord a => BTree a -> BTree a
+reinvBTree Leaf = Leaf
+reinvBTree node = fromListInv (toList node)
 
 
 
 -- shows a proof that inversion of inversion is the original
 -- i.e. inv . inv = id
 
-invOfInv : Ord a => (bt: BTree a) -> invBTree (invBTree bt) = bt
+invOfInv : Ord a => (bt: BTree a) -> reinvBTree (reinvBTree bt) = bt
 invOfInv Leaf = Refl
 invOfInv (Node x y z) = ?hole
