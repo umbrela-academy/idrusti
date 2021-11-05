@@ -19,17 +19,17 @@ interface SemEgor a where
 interface SemEgorGroup a where
     binop : a -> a -> a
 
-interface AditiSemEgorGroup a where
+interface AditiSemEgor a where
     plus : a -> a -> a
 
-interface MultiSemEgorGroup a where
+interface MultiSemEgor a where
     mult : a -> a -> a
 
 interface SemEgorGroup a => MonoEgor a where
     neutral : a
 
-interface AditiSemEgorGroup a => AditiMonoEgor a where
+interface AditiSemEgor a => MonoAditi a where
     pneutral : a 
 
-interface MultiSemEgorGroup a => MultiMonoEgor a where
+interface MultiSemEgor a => MonoMulti a where
     mneutral : a
